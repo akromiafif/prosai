@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { Task } from "../src/constant";
+import KanbanItem from "./KanbanItem";
 import KanbanTask from "./KanbanTask";
 
 // import NewTask from "./Components/NewTask";
@@ -75,78 +76,29 @@ class App extends Component {
       );
     });
     return (
-      <div>
+      <div className="flex flex-row">
         {/* {loader} */}
 
-        <div
-          className={`absolute w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
-          style={{
-            boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            height: "32rem",
-          }}
+        <KanbanItem
+          title="Backlog"
+          tasks={tasks}
           onDragOver={(e) => this.onDragOver(e)}
           onDrop={(e) => this.onDrop(e, "backlog")}
-        >
-          <div className="flex flex-row justify-between w-full items-center ">
-            <b className="text-2xl">Backlog</b>
-            <div className="bg-primary-green px-4 py-2 rounded-3xl cursor-pointer hover:opacity-60">
-              <b className="text-white">&#43; Add a Task</b>
-            </div>
-          </div>
-          {tasks.backlog}
-        </div>
+        />
 
-        <div
-          className={`todo absolute bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
-          style={{
-            boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            height: "32rem",
-            width: "20rem",
-          }}
+        <KanbanItem
+          title="Todo"
+          tasks={tasks}
           onDragOver={(e) => this.onDragOver(e)}
           onDrop={(e) => this.onDrop(e, "todo")}
-        >
-          <div className="flex flex-row justify-between w-full items-center ">
-            <b className="text-2xl">To Do</b>
-            <div className="bg-primary-green px-4 py-2 rounded-3xl cursor-pointer hover:opacity-60">
-              <b className="text-white">&#43; Add a Task</b>
-            </div>
-          </div>
-          {tasks.todo}
-        </div>
+        />
 
-        <div
-          className={`droppable absolute w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
-          style={{
-            boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
-            height: "32rem",
-          }}
+        <KanbanItem
+          title="Done"
+          tasks={tasks}
           onDragOver={(e) => this.onDragOver(e)}
           onDrop={(e) => this.onDrop(e, "done")}
-        >
-          <div className="flex flex-row justify-between w-full items-center ">
-            <b className="text-2xl">Done</b>
-            <div className="bg-primary-green px-4 py-2 rounded-3xl cursor-pointer hover:opacity-60">
-              <b className="text-white">&#43; Add a Task</b>
-            </div>
-          </div>
-          {tasks.done}
-        </div>
-        <style jsx>
-          {`
-            .todo {
-              left: 22rem;
-            }
-
-            .droppable {
-              right: 0;
-            }
-
-            ::-webkit-scrollbar {
-              width: 0;
-            }
-          `}
-        </style>
+        />
       </div>
     );
   }
