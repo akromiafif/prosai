@@ -24,8 +24,9 @@ class App extends Component {
 
   onDrop = (e, cat) => {
     let id = e.dataTransfer.getData("id");
+    console.log(id);
     let tasks = this.state.tasks.filter((task) => {
-      if (task.name == id) {
+      if (task.id == id) {
         task.category = cat;
         if (cat == "done") {
           task.bgColor = "#e57373";
@@ -69,7 +70,7 @@ class App extends Component {
           type={t.type}
           title={t.name}
           txtType={t.txtType}
-          onDragStart={(e) => this.onDragStart(e, t.name)}
+          onDragStart={(e) => this.onDragStart(e, t.id)}
         />
       );
     });
@@ -78,7 +79,7 @@ class App extends Component {
         {/* {loader} */}
 
         <div
-          className={`backlog w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
+          className={`absolute w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
           style={{
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             height: "32rem",
@@ -96,7 +97,7 @@ class App extends Component {
         </div>
 
         <div
-          className={`todo bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
+          className={`todo absolute bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
           style={{
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             height: "32rem",
@@ -115,7 +116,7 @@ class App extends Component {
         </div>
 
         <div
-          className={`droppable w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
+          className={`droppable absolute w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto`}
           style={{
             boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
             height: "32rem",
@@ -133,23 +134,12 @@ class App extends Component {
         </div>
         <style jsx>
           {`
-            .backlog {
-              position: absolute;
-              height: 100vh;
-            }
-
             .todo {
-              position: absolute;
-              height: 100vh;
               left: 22rem;
-              top: 10;
             }
 
             .droppable {
-              position: absolute;
-              height: 100vh;
               right: 0;
-              top: 10;
             }
 
             ::-webkit-scrollbar {
