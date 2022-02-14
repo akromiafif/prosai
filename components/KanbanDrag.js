@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import { Task } from "../src/constant";
+import AddTask from "./AddTask";
 import KanbanItem from "./KanbanItem";
 import KanbanTask from "./KanbanTask";
 
@@ -78,7 +79,6 @@ class App extends Component {
     return (
       <div className="flex flex-row">
         {/* {loader} */}
-
         <KanbanItem
           title="Backlog"
           tasks={tasks}

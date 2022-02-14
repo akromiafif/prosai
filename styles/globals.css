@@ -10,6 +10,7 @@
   h2,
   button,
   input,
+  label,
   ::placeholder {
     @apply font-poppins;
   }
