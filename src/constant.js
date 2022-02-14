@@ -27,7 +27,7 @@ const KanbanType = {
   BACKEND: "backend",
 };
 
-const Task = [
+let Task = [
   {
     id: uuidv4(),
     name: "Learn Laravel",

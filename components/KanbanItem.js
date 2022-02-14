@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { KanbanType, Task } from "../src/constant";
+import { v4 as uuidv4 } from "uuid";
 
 const KanbanItem = ({ title, tasks, onDragOver, onDrop }) => {
+  const [allTask, setAllTask] = useState(Task);
+
+  const addTask = () => {
+    console.log(allTask);
+    allTask.push({
+      id: uuidv4(),
+      name: "Learn Add Task",
+      type: KanbanType.RESEARCH,
+      txtType: "RESEARCH",
+      category: "backlog",
+      bgColor: "#9fa8da",
+    });
+  };
+
   return (
     <div
       className={`absolute w-1/3 bg-white h-screen rounded-xl p-6 space-y-4 overflow-auto ${
@@ -21,7 +37,10 @@ const KanbanItem = ({ title, tasks, onDragOver, onDrop }) => {
     >
       <div className="flex flex-row justify-between w-full items-center ">
         <b className="text-2xl">{title}</b>
-        <div className="bg-primary-green px-4 py-2 rounded-3xl cursor-pointer hover:opacity-60">
+        <div
+          onClick={addTask}
+          className="bg-primary-green px-4 py-2 rounded-3xl cursor-pointer hover:opacity-60"
+        >
           <b className="text-white">&#43; Add a Task</b>
         </div>
       </div>

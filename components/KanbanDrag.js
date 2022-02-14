@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
-import { Task } from "../src/constant";
-import AddTask from "./AddTask";
+import { useRecoilValue } from "recoil";
 import KanbanItem from "./KanbanItem";
 import KanbanTask from "./KanbanTask";
-
-// import NewTask from "./Components/NewTask";
+import { taskState } from "../src/state";
+import { Task } from "../src/constant";
 
 class App extends Component {
   constructor(props) {
@@ -26,15 +24,9 @@ class App extends Component {
 
   onDrop = (e, cat) => {
     let id = e.dataTransfer.getData("id");
-    console.log(id);
     let tasks = this.state.tasks.filter((task) => {
       if (task.id == id) {
         task.category = cat;
-        if (cat == "done") {
-          task.bgColor = "#e57373";
-        } else {
-          task.bgColor = "#9fa8da";
-        }
       }
       return task;
     });
@@ -66,6 +58,7 @@ class App extends Component {
       done: [],
       todo: [],
     };
+
     this.state.tasks.forEach((t) => {
       tasks[t.category].push(
         <KanbanTask
@@ -76,6 +69,7 @@ class App extends Component {
         />
       );
     });
+
     return (
       <div className="flex flex-row">
         {/* {loader} */}
