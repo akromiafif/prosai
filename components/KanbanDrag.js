@@ -54,7 +54,6 @@ const KanbanDrag = () => {
         title={t.title}
         txtType={t.txtType}
         tags={t.tags}
-        txtType={t.txtType}
         onDragStart={(e) => onDragStart(e, t.issue_id)}
       />
     );
