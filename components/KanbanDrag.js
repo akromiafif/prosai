@@ -10,8 +10,12 @@ const KanbanDrag = () => {
   const tasksValue = useRecoilValue(taskState);
 
   useEffect(() => {
-    setTasks(tasksValue);
+    setTasks(Task);
   }, []);
+
+  useEffect(() => {
+    console.log(tasksValue);
+  }, [tasksValue]);
 
   const onDragOver = (e) => {
     e.preventDefault();

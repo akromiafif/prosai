@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 import { v4 as uuidv4 } from "uuid";
 import { KanbanType } from "./constant";

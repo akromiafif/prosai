@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Button from "./Button";
 import InputField from "./InputField";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { clickedState } from "../src/state";
+import { clickedState, taskState } from "../src/state";
+import { v4 as uuidv4 } from "uuid";
+import { KanbanType } from "../src/constant";
 
 const AddTask = () => {
   const [title, setTitle] = useState("");
@@ -13,6 +15,23 @@ const AddTask = () => {
 
   const isClicked = useRecoilValue(clickedState);
   const setClickedState = useSetRecoilState(clickedState);
+
+  const setTaskState = useSetRecoilState(taskState);
+
+  const submit = () => {
+    setTaskState((prev) => [
+      ...prev,
+      {
+        id: uuidv4(),
+        name: "Learn Add Task",
+        type: KanbanType.RESEARCH,
+        txtType: "RESEARCH",
+        category: "backlog",
+        bgColor: "#9fa8da",
+      },
+    ]);
+    setClickedState(false);
+  };
 
   return (
     <div
@@ -50,12 +69,7 @@ const AddTask = () => {
           value={endDate}
           onChange={() => setEndDate(e.target.value)}
         />
-        <Button
-          title="Submit"
-          onClick={() => {
-            setClickedState(false);
-          }}
-        />
+        <Button title="Submit" onClick={submit} />
       </div>
     </div>
   );
