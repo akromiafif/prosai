@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import KanbanItem from "./KanbanItem";
 import KanbanTask from "./KanbanTask";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { clickedState, taskState } from "../src/state";
 import { Task } from "../src/constant";
 
 const KanbanDrag = () => {
   const [tasks, setTasks] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+  const tasksValue = useRecoilValue(taskState);
 
   useEffect(() => {
-    setTasks(Task);
-    console.log(tasks);
+    setTasks(tasksValue);
   }, []);
 
   const onDragOver = (e) => {
@@ -24,29 +25,12 @@ const KanbanDrag = () => {
     let id = e.dataTransfer.getData("id");
     let newTask = tasks.filter((task) => {
       if (task.id == id) {
+        console.log(task.category);
         task.category = cat;
       }
       return task;
     });
     setTasks(newTask);
-  };
-
-  const handleAddNew = () => {
-    let val = isClicked ? false : true;
-    setIsClicked(val);
-  };
-
-  const handleClose = (obj) => {
-    setIsClicked(obj);
-  };
-
-  const handleNewTask = (content) => {
-    const newTask = {};
-    newTask.name = content;
-    newTask.bgColor = "#9fa8da";
-    newTask.category = "backlog";
-    const newTask2 = [tasks, newTask];
-    setTasks(newTask2);
   };
 
   const tasksLog = {
@@ -68,7 +52,6 @@ const KanbanDrag = () => {
 
   return (
     <div className="flex flex-row">
-      {/* {loader} */}
       <KanbanItem
         title="Backlog"
         tasks={tasksLog}

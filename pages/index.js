@@ -10,7 +10,7 @@ const index = () => {
       <Head>
         <title>Kanban Prosai</title>
       </Head>
-      {/* <AddTask /> */}
+      <AddTask />
       <Sidebar />
       <Content />
     </div>

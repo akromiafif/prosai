@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import InputField from "./InputField";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { clickedState } from "../src/state";
 
 const AddTask = () => {
   const [title, setTitle] = useState("");
@@ -9,9 +11,14 @@ const AddTask = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
+  const isClicked = useRecoilValue(clickedState);
+  const setClickedState = useSetRecoilState(clickedState);
+
   return (
     <div
-      className="w-full h-screen fixed z-10 flex flex-row items-center justify-center"
+      className={`w-full h-screen  z-10 flex flex-row items-center justify-center ${
+        isClicked ? "fixed" : "hidden"
+      }`}
       style={{ background: "rgba(212, 212, 212, 0.7)" }}
     >
       <div className="px-10 w-3/12 py-8 opacity-100 bg-white z-20 rounded-2xl flex flex-col space-y-4">
@@ -43,7 +50,12 @@ const AddTask = () => {
           value={endDate}
           onChange={() => setEndDate(e.target.value)}
         />
-        <Button title="Submit" onClick={() => console.log("CLICK")} />
+        <Button
+          title="Submit"
+          onClick={() => {
+            setClickedState(false);
+          }}
+        />
       </div>
     </div>
   );

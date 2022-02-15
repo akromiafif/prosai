@@ -5,8 +5,13 @@ import { KanbanType } from "./constant";
 
 const { persistAtom } = recoilPersist();
 
+export const clickedState = atom({
+  key: "clickedState",
+  default: false,
+});
+
 export const taskState = atom({
-  key: "userDataState",
+  key: "taskState",
   default: [
     {
       id: uuidv4(),
@@ -16,7 +21,6 @@ export const taskState = atom({
       category: "backlog",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn Flutter",
@@ -25,7 +29,6 @@ export const taskState = atom({
       category: "backlog",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn Golang",
@@ -34,7 +37,6 @@ export const taskState = atom({
       category: "backlog",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn React",
@@ -43,7 +45,6 @@ export const taskState = atom({
       category: "todo",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn NEXTJS",
@@ -52,7 +53,6 @@ export const taskState = atom({
       category: "todo",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn TypeORM",
@@ -61,7 +61,6 @@ export const taskState = atom({
       category: "todo",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn ThreeJS",
@@ -70,7 +69,6 @@ export const taskState = atom({
       category: "done",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn FastAPI",
@@ -79,7 +77,6 @@ export const taskState = atom({
       category: "done",
       bgColor: "#9fa8da",
     },
-
     {
       id: uuidv4(),
       name: "Learn React",

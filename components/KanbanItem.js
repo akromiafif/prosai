@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { KanbanType, Task } from "../src/constant";
 import { v4 as uuidv4 } from "uuid";
+import { useSetRecoilState } from "recoil";
+import { clickedState } from "../src/state";
 
 const KanbanItem = ({ title, tasks, onDragOver, onDrop }) => {
   const [allTask, setAllTask] = useState(Task);
+  const setClickedState = useSetRecoilState(clickedState);
 
   const addTask = () => {
     console.log(allTask);
+    setClickedState(true);
     allTask.push({
       id: uuidv4(),
       name: "Learn Add Task",
