@@ -3,6 +3,7 @@ import Content from "../components/Content";
 import Sidebar from "../components/Sidebar";
 import Head from "next/head";
 import AddTask from "../components/AddTask";
+import ShowTask from "../components/ShowTask";
 
 const index = () => {
   return (
@@ -11,6 +12,7 @@ const index = () => {
         <title>Kanban Prosai</title>
       </Head>
       <AddTask />
+      <ShowTask />
       <Sidebar />
       <Content />
     </div>

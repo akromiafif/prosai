@@ -1,18 +1,46 @@
 import moment from "moment";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import { KanbanType } from "../src/constant";
+import { showTaskState, taskShowItem } from "../src/state";
 
 const KanbanTask = ({
+  id,
   title,
   assigne,
   start_date,
   end_date,
   type,
+  tags,
   txtType,
   onDragStart,
 }) => {
+  const setShowTaskState = useSetRecoilState(showTaskState);
+  const setTaskShowItem = useSetRecoilState(taskShowItem);
+
+  const selectedTask = useRecoilValue(taskShowItem);
+
+  const showTask = () => {
+    setShowTaskState(true);
+    setTaskShowItem({
+      id: id,
+      title: title,
+      assigne: assigne,
+      start_date: start_date,
+      end_date: end_date,
+      type: type,
+      txtType: txtType,
+      tags: tags,
+    });
+  };
+
+  useEffect(() => {
+    console.log(selectedTask);
+  }, [selectedTask]);
+
   return (
     <div
+      onClick={showTask}
       draggable
       onDragStart={onDragStart}
       className="bg-primary-gray cursor-pointer w-full h-36 rounded-2xl text-left p-4 justify-between flex flex-col"

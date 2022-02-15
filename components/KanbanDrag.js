@@ -17,9 +17,6 @@ const KanbanDrag = () => {
   useEffect(() => {
     setTasks(tasksValue);
     console.log(tasksValue);
-    console.log("20022020".split("-"));
-
-    console.log(moment([2007, 0, 29]).fromNow());
   }, [tasksValue]);
 
   const onDragOver = (e) => {
@@ -49,11 +46,14 @@ const KanbanDrag = () => {
   tasks.forEach((t) => {
     tasksLog[t.tags].push(
       <KanbanTask
+        id={t.issue_id}
         type={t.type}
         assigne={t.assigne}
         start_date={t.start_date}
         end_date={t.end_date}
         title={t.title}
+        txtType={t.txtType}
+        tags={t.tags}
         txtType={t.txtType}
         onDragStart={(e) => onDragStart(e, t.issue_id)}
       />

@@ -9,6 +9,25 @@ export const clickedState = atom({
   default: false,
 });
 
+export const showTaskState = atom({
+  key: "showTaskState",
+  default: false,
+});
+
+export const taskShowItem = atom({
+  key: "taskShowItem",
+  default: {
+    issue_id: 0,
+    title: "",
+    assigne: "",
+    start_date: "",
+    end_date: "",
+    type: KanbanType.RESEARCH,
+    txtType: "",
+    tags: "",
+  },
+});
+
 export const taskState = atom({
   key: "taskState",
   default: [
