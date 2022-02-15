@@ -23,11 +23,13 @@ const AddTask = () => {
       ...prev,
       {
         issue_id: tasksValue.length + 1,
-        name: "Learn Add Task",
+        title: "Learn Add Task",
+        assigne: "Afif Akromi",
+        start_date: "15-02-2022",
+        end_date: "15-03-2022",
         type: KanbanType.RESEARCH,
         txtType: "RESEARCH",
-        category: "backlog",
-        bgColor: "#9fa8da",
+        tags: "done",
       },
     ]);
     setClickedState(false);

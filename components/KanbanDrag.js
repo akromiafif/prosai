@@ -31,7 +31,7 @@ const KanbanDrag = () => {
     let index = tasks.findIndex((item) => item.issue_id == id);
 
     let newTask = [...tasksValue];
-    let updateTask = { ...newTask[index], category: cat };
+    let updateTask = { ...newTask[index], tags: cat };
     newTask[index] = updateTask;
     setTasksValue(newTask);
   };
@@ -43,10 +43,11 @@ const KanbanDrag = () => {
   };
 
   tasks.forEach((t) => {
-    tasksLog[t.category].push(
+    console.log(t);
+    tasksLog[t.tags].push(
       <KanbanTask
         type={t.type}
-        title={t.name}
+        title={t.title}
         txtType={t.txtType}
         onDragStart={(e) => onDragStart(e, t.issue_id)}
       />
