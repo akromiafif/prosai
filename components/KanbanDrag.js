@@ -17,6 +17,7 @@ const KanbanDrag = () => {
   useEffect(() => {
     setTasks(tasksValue);
     console.log(tasksValue);
+    console.log("20022020".split("-"));
 
     console.log(moment([2007, 0, 29]).fromNow());
   }, [tasksValue]);

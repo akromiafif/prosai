@@ -25,4 +25,10 @@ const KanbanType = {
   BACKEND: "backend",
 };
 
-export { profileTeams, KanbanType };
+const TaskType = {
+  BACKLOG: "backlog",
+  TODO: "todo",
+  DONE: "done",
+};
+
+export { profileTeams, KanbanType, TaskType };
