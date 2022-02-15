@@ -23,25 +23,25 @@ const AddTask = () => {
 
   const submit = () => {
     if (
-      tags != TaskType.BACKLOG &&
-      tags != TaskType.TODO &&
-      tags != TaskType.DONE
+      tags.toLowerCase() != TaskType.BACKLOG &&
+      tags.toLowerCase() != TaskType.TODO &&
+      tags.toLowerCase() != TaskType.DONE
     ) {
       console.log(tags);
       toast.error("Wrong tags");
     } else if (
-      type != KanbanType.RESEARCH &&
-      type != KanbanType.DESIGN &&
-      type != KanbanType.BACKEND
+      type.toLowerCase() != KanbanType.RESEARCH &&
+      type.toLowerCase() != KanbanType.DESIGN &&
+      type.toLowerCase() != KanbanType.BACKEND
     ) {
       toast.error("Wrong type");
     } else if (title === "") {
       toast.error("Title is required");
     } else if (assigne === "") {
       toast.error("Assigne is required");
-    } else if (startDate.split("-").length == 1) {
+    } else if (startDate.split("-").length != 3) {
       toast.error("Start date wrong format");
-    } else if (endDate.split("-").length == 1) {
+    } else if (endDate.split("-").length != 3) {
       toast.error("End date wrong format");
     } else {
       setTaskState((prev) => [
