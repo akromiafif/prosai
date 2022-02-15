@@ -3,7 +3,6 @@ import Button from "./Button";
 import InputField from "./InputField";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { clickedState, taskState } from "../src/state";
-import { v4 as uuidv4 } from "uuid";
 import { KanbanType } from "../src/constant";
 
 const AddTask = () => {
@@ -17,12 +16,13 @@ const AddTask = () => {
   const setClickedState = useSetRecoilState(clickedState);
 
   const setTaskState = useSetRecoilState(taskState);
+  const tasksValue = useRecoilValue(taskState);
 
   const submit = () => {
     setTaskState((prev) => [
       ...prev,
       {
-        id: uuidv4(),
+        id: tasksValue.length + 1,
         name: "Learn Add Task",
         type: KanbanType.RESEARCH,
         txtType: "RESEARCH",
