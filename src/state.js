@@ -1,6 +1,5 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import { v4 as uuidv4 } from "uuid";
 import { KanbanType } from "./constant";
 
 const { persistAtom } = recoilPersist();
@@ -14,7 +13,7 @@ export const taskState = atom({
   key: "taskState",
   default: [
     {
-      id: uuidv4(),
+      id: 0,
       name: "Learn Laravel",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",
@@ -22,7 +21,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 1,
       name: "Learn Flutter",
       type: KanbanType.BACKEND,
       txtType: "BACKEND",
@@ -30,7 +29,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 2,
       name: "Learn Golang",
       type: KanbanType.DESIGN,
       txtType: "DESIGN",
@@ -38,7 +37,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 3,
       name: "Learn React",
       type: KanbanType.DESIGN,
       txtType: "DESIGN",
@@ -46,7 +45,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 4,
       name: "Learn NEXTJS",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",
@@ -54,7 +53,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 5,
       name: "Learn TypeORM",
       type: KanbanType.BACKEND,
       txtType: "BACKEND",
@@ -62,7 +61,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 6,
       name: "Learn ThreeJS",
       type: KanbanType.BACKEND,
       txtType: "BACKEND",
@@ -70,7 +69,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 7,
       name: "Learn FastAPI",
       type: KanbanType.DESIGN,
       txtType: "DESIGN",
@@ -78,7 +77,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: uuidv4(),
+      id: 8,
       name: "Learn React",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",
