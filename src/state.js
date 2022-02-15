@@ -13,7 +13,7 @@ export const taskState = atom({
   key: "taskState",
   default: [
     {
-      id: 0,
+      issue_id: 0,
       name: "Learn Laravel",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",
@@ -21,7 +21,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 1,
+      issue_id: 1,
       name: "Learn Flutter",
       type: KanbanType.BACKEND,
       txtType: "BACKEND",
@@ -29,7 +29,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 2,
+      issue_id: 2,
       name: "Learn Golang",
       type: KanbanType.DESIGN,
       txtType: "DESIGN",
@@ -37,7 +37,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 3,
+      issue_id: 3,
       name: "Learn React",
       type: KanbanType.DESIGN,
       txtType: "DESIGN",
@@ -45,7 +45,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 4,
+      issue_id: 4,
       name: "Learn NEXTJS",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",
@@ -53,7 +53,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 5,
+      issue_id: 5,
       name: "Learn TypeORM",
       type: KanbanType.BACKEND,
       txtType: "BACKEND",
@@ -61,7 +61,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 6,
+      issue_id: 6,
       name: "Learn ThreeJS",
       type: KanbanType.BACKEND,
       txtType: "BACKEND",
@@ -69,7 +69,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 7,
+      issue_id: 7,
       name: "Learn FastAPI",
       type: KanbanType.DESIGN,
       txtType: "DESIGN",
@@ -77,7 +77,7 @@ export const taskState = atom({
       bgColor: "#9fa8da",
     },
     {
-      id: 8,
+      issue_id: 8,
       name: "Learn React",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",

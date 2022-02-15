@@ -22,7 +22,7 @@ const AddTask = () => {
     setTaskState((prev) => [
       ...prev,
       {
-        id: tasksValue.length + 1,
+        issue_id: tasksValue.length + 1,
         name: "Learn Add Task",
         type: KanbanType.RESEARCH,
         txtType: "RESEARCH",

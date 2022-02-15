@@ -28,7 +28,7 @@ const KanbanDrag = () => {
 
   const onDrop = (e, cat) => {
     let id = e.dataTransfer.getData("id");
-    let index = tasks.findIndex((item) => item.id == id);
+    let index = tasks.findIndex((item) => item.issue_id == id);
 
     let newTask = [...tasksValue];
     let updateTask = { ...newTask[index], category: cat };
@@ -48,7 +48,7 @@ const KanbanDrag = () => {
         type={t.type}
         title={t.name}
         txtType={t.txtType}
-        onDragStart={(e) => onDragStart(e, t.id)}
+        onDragStart={(e) => onDragStart(e, t.issue_id)}
       />
     );
   });
