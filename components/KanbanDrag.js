@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import KanbanItem from "./KanbanItem";
 import KanbanTask from "./KanbanTask";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { clickedState, taskState } from "../src/state";
-import { Task } from "../src/constant";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { taskState } from "../src/state";
 
 const KanbanDrag = () => {
   const [tasks, setTasks] = useState([]);
   const tasksValue = useRecoilValue(taskState);
+  const setTasksValue = useSetRecoilState(taskState);
 
   useEffect(() => {
-    setTasks(Task);
+    setTasks(tasksValue);
   }, []);
 
   useEffect(() => {
+    setTasks(tasksValue);
     console.log(tasksValue);
   }, [tasksValue]);
 
@@ -27,14 +28,12 @@ const KanbanDrag = () => {
 
   const onDrop = (e, cat) => {
     let id = e.dataTransfer.getData("id");
-    let newTask = tasks.filter((task) => {
-      if (task.id == id) {
-        console.log(task.category);
-        task.category = cat;
-      }
-      return task;
-    });
-    setTasks(newTask);
+    let index = tasks.findIndex((item) => item.id == id);
+
+    let newTask = [...tasksValue];
+    let updateTask = { ...newTask[index], category: cat };
+    newTask[index] = updateTask;
+    setTasksValue(newTask);
   };
 
   const tasksLog = {
