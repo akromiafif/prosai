@@ -84,7 +84,14 @@ const AddTask = () => {
     >
       <ToastContainer autoClose={1000} />
       <div className="px-10 w-3/12 py-8 opacity-100 bg-white z-20 rounded-2xl flex flex-col space-y-4">
-        <h1 className="text-2xl font-bold">New Task</h1>
+        <div className="w-full flex flex-row items-center justify-between">
+          <h1 className="text-2xl font-bold">New Task</h1>
+          <img
+            onClick={() => setClickedState(false)}
+            className="w-8 h-8 cursor-pointer hover:opacity-70"
+            src="/img/close-logo.png"
+          />
+        </div>
         <InputField
           title="Title"
           value={title}
