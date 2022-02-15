@@ -17,7 +17,7 @@ export const taskState = atom({
       title: "Learn Laravel",
       assigne: "Afif Akromi",
       start_date: "15-02-2022",
-      end_date: "15-03-2022",
+      end_date: "15-06-2022",
       type: KanbanType.RESEARCH,
       txtType: "RESEARCH",
       tags: "backlog",

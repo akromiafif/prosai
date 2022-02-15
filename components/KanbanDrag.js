@@ -3,6 +3,7 @@ import KanbanItem from "./KanbanItem";
 import KanbanTask from "./KanbanTask";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { taskState } from "../src/state";
+import moment from "moment";
 
 const KanbanDrag = () => {
   const [tasks, setTasks] = useState([]);
@@ -16,6 +17,8 @@ const KanbanDrag = () => {
   useEffect(() => {
     setTasks(tasksValue);
     console.log(tasksValue);
+
+    console.log(moment([2007, 0, 29]).fromNow());
   }, [tasksValue]);
 
   const onDragOver = (e) => {
@@ -43,10 +46,12 @@ const KanbanDrag = () => {
   };
 
   tasks.forEach((t) => {
-    console.log(t);
     tasksLog[t.tags].push(
       <KanbanTask
         type={t.type}
+        assigne={t.assigne}
+        start_date={t.start_date}
+        end_date={t.end_date}
         title={t.title}
         txtType={t.txtType}
         onDragStart={(e) => onDragStart(e, t.issue_id)}

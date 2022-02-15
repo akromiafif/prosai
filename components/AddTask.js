@@ -8,6 +8,7 @@ import { KanbanType } from "../src/constant";
 const AddTask = () => {
   const [title, setTitle] = useState("");
   const [tags, setTags] = useState("");
+  const [type, setType] = useState("");
   const [assigne, setAssigne] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -23,13 +24,13 @@ const AddTask = () => {
       ...prev,
       {
         issue_id: tasksValue.length + 1,
-        title: "Learn Add Task",
-        assigne: "Afif Akromi",
-        start_date: "15-02-2022",
-        end_date: "15-03-2022",
+        title: title,
+        assigne: assigne,
+        start_date: startDate,
+        end_date: endDate,
         type: KanbanType.RESEARCH,
         txtType: "RESEARCH",
-        tags: "done",
+        tags: tags,
       },
     ]);
     setClickedState(false);
@@ -47,29 +48,38 @@ const AddTask = () => {
         <InputField
           title="Title"
           value={title}
-          onChange={() => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <InputField
           title="Tags"
           value={tags}
-          onChange={() => setTags(e.target.value)}
+          placeholder="Backlog | Todo | Done"
+          onChange={(e) => setTags(e.target.value)}
+        />
+        <InputField
+          title="Type"
+          value={type}
+          placeholder="DESIGN | RESEARCH | BACKEND"
+          onChange={(e) => setType(e.target.value)}
         />
         <InputField
           title="Assignee"
           value={assigne}
-          onChange={() => setAssigne(e.target.value)}
+          onChange={(e) => setAssigne(e.target.value)}
         />
         <InputField
           title="Start Date"
           type="date"
+          placeholder="Format: 02-10-2022"
           value={startDate}
-          onChange={() => setStartDate(e.target.value)}
+          onChange={(e) => setStartDate(e.target.value)}
         />
         <InputField
           title="End Date"
           type="date"
+          placeholder="Format: 05-7-2024"
           value={endDate}
-          onChange={() => setEndDate(e.target.value)}
+          onChange={(e) => setEndDate(e.target.value)}
         />
         <Button title="Submit" onClick={submit} />
       </div>

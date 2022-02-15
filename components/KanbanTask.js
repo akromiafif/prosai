@@ -1,7 +1,16 @@
+import moment from "moment";
 import React from "react";
 import { KanbanType } from "../src/constant";
 
-const KanbanTask = ({ title, type, txtType, onDragStart }) => {
+const KanbanTask = ({
+  title,
+  assigne,
+  start_date,
+  end_date,
+  type,
+  txtType,
+  onDragStart,
+}) => {
   return (
     <div
       draggable
@@ -12,7 +21,7 @@ const KanbanTask = ({ title, type, txtType, onDragStart }) => {
       <div className="w-full flex flex-row justify-between items-center">
         <div className="flex flex-row space-x-2">
           <div className="bg-ternary-green px-3 py-1 rounded-full">
-            <b>A</b>
+            <b>{assigne.charAt(0)}</b>
           </div>
           <div
             className={`px-4 py-1 rounded-3xl ${
@@ -40,7 +49,13 @@ const KanbanTask = ({ title, type, txtType, onDragStart }) => {
             </b>
           </div>
         </div>
-        <b className="text-secondary-gray">2 days</b>
+        <b className="text-secondary-gray">
+          {moment([
+            end_date.split("-")[2],
+            end_date.split("-")[1],
+            end_date.split("-")[0],
+          ]).fromNow()}
+        </b>
       </div>
     </div>
   );
